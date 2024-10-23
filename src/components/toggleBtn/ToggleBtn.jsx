@@ -48,6 +48,8 @@ export default function ToggleBtn() {
           } rounded-xl`}
         ></motion.div>
       </div>
+
+      {/* Sidebar */}
       <Sidebar toggleSidebar={toggleSidebar} />
     </>
   );

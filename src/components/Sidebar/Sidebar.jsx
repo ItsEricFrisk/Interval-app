@@ -2,10 +2,10 @@ import { AnimatePresence, motion } from "framer-motion";
 import TextTimer from "../TextTimer/TextTimer";
 import AnalogTimer from "../AnalogTimer/AnalogTimer";
 import DigitalTimer from "../DigitalTimer/DigitalTimer";
-import { useState } from "react";
 import useStore from "../../store/store";
 
 export default function Sidebar({ toggleSidebar }) {
+  // Zustand
   const { setActiveTimer } = useStore();
 
   // Get a smooth animation on toggle navbar
@@ -29,6 +29,7 @@ export default function Sidebar({ toggleSidebar }) {
     },
   };
 
+  // Ul
   const staggerLinks = {
     hidden: {
       transition: {
@@ -43,7 +44,7 @@ export default function Sidebar({ toggleSidebar }) {
       },
     },
   };
-
+  // Li
   const liAnimation = {
     hidden: {
       y: 30,

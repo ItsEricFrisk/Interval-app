@@ -1,14 +1,12 @@
 import { useState } from "react";
 import SetTimer from "../../components/SetTimer/SetTimer";
 import useStore from "../../store/store";
+import Timer from "../../components/Timer/Timer";
 
 export default function Main() {
   const [intervalCheckbox, setIntervalCheckbox] = useState(false);
   const [breakCheckbox, setBreakCheckbox] = useState(false);
   const [startTimer, setStartTimer] = useState(false);
-
-  // Retrieve which time component to display
-  const TimerComponent = useStore((state) => state.timer);
 
   // Checkbox Interval
   const handleIntervalCheckbox = () => {
@@ -30,21 +28,30 @@ export default function Main() {
       console.log(breakCheckbox);
     }
 
+    // Start timer
     setStartTimer(!startTimer);
   };
 
   return (
     <main className="grid items-center justify-items-center w-screen h-full grid-cols-1 grid-rows-6 py-3 bg-antiFlashWhite">
       <h1 className="self-start text-2xl font-semibold row-span-1">INTERVAL</h1>
+
+      {/* Timer */}
       <div className="row-span-2 justify-self-center">
-        {startTimer ? <TimerComponent /> : <SetTimer />}
+        {startTimer ? (
+          <Timer interval={intervalCheckbox} break={breakCheckbox} />
+        ) : (
+          <SetTimer />
+        )}
       </div>
 
       {/* Checkboxes */}
       <div
         className={`${
-          startTimer ? "invisible" : ""
-        } w-2/3 h-20  px-7 flex flex-col justify-between self-end row-span-1`}
+          startTimer
+            ? "invisible"
+            : "w-2/3 h-20  px-7 flex flex-col justify-between self-end row-span-1"
+        }`}
       >
         <div className="flex items-center row-span-9">
           <input
