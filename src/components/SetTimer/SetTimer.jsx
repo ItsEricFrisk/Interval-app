@@ -1,4 +1,3 @@
-import { useEffect } from "react";
 import arrow from "../../assets/arrow.svg";
 import useStore from "../../store/store";
 import { useShallow } from "zustand/shallow";
@@ -30,11 +29,6 @@ export default function SetTimer({}) {
       increaseMinutes();
     }
   };
-
-  // Felsökning
-  // useEffect(() => {
-  //   console.log("Minutes in SetTimer has changed:", minutes);
-  // }, [minutes]);
 
   return (
     <div className="w-screen h-64 grid grid-rows-2 grid-cols-3 justify-items-center items-end self-end">

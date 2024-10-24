@@ -15,7 +15,7 @@ export default function ToggleBtn() {
         onClick={handleSidebar}
       >
         {/* ---------- */}
-        <motion.div
+        <motion.span
           initial={{ y: 0 }}
           animate={toggleSidebar ? { y: 10, rotate: 45 } : {}}
           transition={
@@ -24,9 +24,9 @@ export default function ToggleBtn() {
           className={`w-full h-1  origin-center ${
             toggleSidebar ? "bg-white" : "bg-black"
           } rounded-full`}
-        ></motion.div>
+        ></motion.span>
         {/* ---------- */}
-        <motion.div
+        <motion.span
           initial={{ scale: 1, opacity: 1 }}
           animate={
             toggleSidebar ? { scale: 0, opacity: 0 } : { scale: 1, opacity: 1 }
@@ -35,9 +35,9 @@ export default function ToggleBtn() {
           className={`w-full h-1 ${
             toggleSidebar ? "bg-white" : "bg-black"
           } rounded-xl`}
-        ></motion.div>
+        ></motion.span>
         {/* ---------- */}
-        <motion.div
+        <motion.span
           initial={{ y: 0 }}
           animate={toggleSidebar ? { y: -10, rotate: -45 } : {}}
           transition={
@@ -46,7 +46,7 @@ export default function ToggleBtn() {
           className={`w-full h-1  origin-center ${
             toggleSidebar ? "bg-white" : "bg-black"
           } rounded-xl`}
-        ></motion.div>
+        ></motion.span>
       </div>
 
       {/* Sidebar */}

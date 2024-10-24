@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import Loader from "./pages/Loader/Loader";
 import MainPage from "./pages/MainPage/MainPage";
-import ToggleBtn from "./components/toggleBtn/ToggleBtn";
 
 function App() {
   const [isLoading, setIsLoading] = useState(true);
@@ -31,7 +30,6 @@ function App() {
           </motion.div>
         ) : (
           <motion.div>
-            <ToggleBtn />
             <MainPage />
           </motion.div>
         )}

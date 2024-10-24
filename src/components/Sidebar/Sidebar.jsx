@@ -89,7 +89,6 @@ export default function Sidebar({ toggleSidebar }) {
                 variants={liAnimation}
               >
                 <a
-                  className=""
                   onClick={() => {
                     setActiveTimer(link.component);
                   }}

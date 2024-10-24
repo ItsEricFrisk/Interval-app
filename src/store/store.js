@@ -8,15 +8,19 @@ const useStore = create((set) => ({
   minutes: 10,
   increaseMinutes: () => set((state) => ({ minutes: state.minutes + 1 })),
   decreaseMinutes: () => set((state) => ({ minutes: state.minutes - 1 })),
-  // setMinutes: (newMinutes) => set({ minutes: newMinutes }),
   setMinutes: (newMinutes) => {
-    console.log("Setting minutes to:", newMinutes);
     set({ minutes: newMinutes });
   },
 
   // Store what timer to show
   timer: AnalogTimer,
   setActiveTimer: (newTimer) => set((state) => ({ timer: newTimer })),
+
+  startTimer: false,
+  setStartTimer: (value) => set({ startTimer: value }),
+
+  pause: false,
+  setPause: (value) => set({ pause: value }),
 }));
 
 export default useStore;
