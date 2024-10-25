@@ -33,12 +33,12 @@ export default function Timer({ intervalCheckbox, restCheckbox, pauseStatus }) {
 
   // Handle pause/resume timer
   useEffect(() => {
-    if (pauseStatus) {
+    if (pauseStatus || pause) {
       timer.pause();
     } else {
       timer.start();
     }
-  }, [pauseStatus]);
+  }, [pauseStatus, pause]);
 
   // When the timer is at 0 check conditions and set pause to true if needed, else set finish to true or start interval
   useEffect(() => {

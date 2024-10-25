@@ -9,10 +9,11 @@ function currentTimeToNumber(currentTime) {
 }
 
 export default function AnalogTimer({ currentTime, pauseStatus, interval }) {
-  const [runIndicator, setRunIndicator] = useState(false);
+  const [runIndicator, setRunIndicator] = useState(true);
 
   // Zustand
   const startTime = useStore((state) => state.minutes);
+  const pause = useStore((state) => state.pause);
 
   const getDuration = startTime * 60;
 
@@ -22,19 +23,27 @@ export default function AnalogTimer({ currentTime, pauseStatus, interval }) {
   const secondsElapsed = getDuration - currentSeconds;
 
   // Calculate rotation angle (from 0 degrees)
-  const initialRotation = (secondsElapsed / getDuration) * 360;
+  let initialRotation = (secondsElapsed / getDuration) * 360;
 
   // Set remaining time as duration
   const remainingDuration = currentSeconds > 0 ? currentSeconds : 1;
 
   // Pause/resume indicator
   useEffect(() => {
-    if (pauseStatus) {
+    if (pauseStatus || pause) {
       setRunIndicator(false);
     } else {
       setRunIndicator(true);
     }
-  }, [pauseStatus]);
+  }, [pauseStatus, pause]);
+
+  // useEffect(() => {
+  //   if (pause) {
+  //     setRunIndicator(false);
+  //   } else {
+  //     setRunIndicator(true);
+  //   }
+  // }, [pause]);
 
   // Handle indicator run when intervalCount changes
   useEffect(() => {
