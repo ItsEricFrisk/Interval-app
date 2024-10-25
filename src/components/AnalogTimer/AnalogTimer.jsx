@@ -37,14 +37,6 @@ export default function AnalogTimer({ currentTime, pauseStatus, interval }) {
     }
   }, [pauseStatus, pause]);
 
-  // useEffect(() => {
-  //   if (pause) {
-  //     setRunIndicator(false);
-  //   } else {
-  //     setRunIndicator(true);
-  //   }
-  // }, [pause]);
-
   // Handle indicator run when intervalCount changes
   useEffect(() => {
     if (interval) {
