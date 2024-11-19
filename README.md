@@ -1,0 +1,1 @@
+A simple timer app where you can set a countdown with optional intervals and 5-minute breaks. Choose between three views: digital, analog, or a spelled-out countdown like 'Four minutes and twenty seconds.
